@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+set -x
 
 echo "🚀 Setting up zsh and oh-my-zsh for devcontainer..."
 sudo apt-get update
