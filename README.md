@@ -19,10 +19,12 @@ Set User's `settings.json` of VScode as following.
 
 Following plugins are installed.
 
--zsh-autosuggestions
--zsh-syntax-highlighting
--zsh-bat
--powerlevel10k
+-zsh-autosuggestions  
+-zsh-syntax-highlighting  
+-zsh-bat  
+-powerlevel10k  
+
+Please see following code, if you want to add plugin, please add it to the `install.sh` file.
 
 ```bash 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-"$HOME/.oh-my-zsh/custom"}/plugins/zsh-autosuggestions
@@ -35,7 +37,7 @@ powerlelve 10k setting is shown in the `dotfiles/.p10k.zsh` file.
 
 ## Compatibility with .bashrc
 
-If you are adding environment variables in Dockerfile using `.bashrc`, you can convert them to `.zshrc` so that they can be used in zsh. 
+If you are adding environment variables in Dockerfile using `.bashrc`, they are automatically copied to `.zshrc` in the following code.
 
 ```bash
 if [ -f ~/.bashrc ]; then
