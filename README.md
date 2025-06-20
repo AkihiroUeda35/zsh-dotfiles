@@ -19,12 +19,14 @@ Set User's `settings.json` of VScode as following.
 
 Following plugins are installed.
 
--zsh-autosuggestions  
--zsh-syntax-highlighting  
--zsh-bat  
--powerlevel10k  
+- docker
+- zsh-autosuggestions  
+- zsh-syntax-highlighting 
+- zsh-bat  
+- powerlevel10k  
 
-Please see following code, if you want to add plugin, please add it to the `install.sh` file.
+
+Please see following code, if you want to add plugin, please add it to the `install.sh`,
 
 ```bash 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-"$HOME/.oh-my-zsh/custom"}/plugins/zsh-autosuggestions
@@ -33,7 +35,13 @@ git clone https://github.com/fdellwing/zsh-bat "$ZSH_CUSTOM/plugins/zsh-bat"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 ```
 
-powerlelve 10k setting is shown in the `dotfiles/.p10k.zsh` file.
+and add the plugin to the `plugins` variable in the `~/.zshrc` file.
+
+```bash
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker zsh-bat)
+```
+
+Settings of powerlevel10k are written in the `dotfiles/.p10k.zsh` file.
 
 ## Compatibility with .bashrc
 
