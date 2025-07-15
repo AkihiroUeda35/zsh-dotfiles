@@ -37,6 +37,11 @@ if [ -f ~/.bashrc ]; then
     echo -e "\n# Environment variables from .bashrc\n$(grep '^export ' ~/.bashrc | grep -v 'shopt\|function')\n" >> ~/.zshrc
     echo -e "\n# Aliases from .bashrc\n$(grep '^alias ' ~/.bashrc)\n" >> ~/.zshrc
     echo -e "\n# Source commands from .bashrc\n$(grep '^source ' ~/.bashrc)\n" >> ~/.zshrc
+    if grep -Fxq '. "$HOME/.local/bin/env"' ~/.bashrc; then
+      if ! grep -Fxq '. "$HOME/.local/bin/env"' ~/.zshrc; then
+        echo '. "$HOME/.local/bin/env"' >> ~/.zshrc
+      fi
+    fi
 fi
 
 echo "⚙️  Convert default shell with /etc/passwd"    
