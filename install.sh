@@ -18,7 +18,11 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
     rm -rf "$HOME/.oh-my-zsh"
 fi
 echo "📦 Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || { echo "❌ oh-my-zsh installation failed!"; exit 1; }
+curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -o /tmp/install-ohmyzsh.sh \
+  || { echo "❌ curl failed!"; exit 1; }
+sh /tmp/install-ohmyzsh.sh "" --unattended \
+  || { echo "❌ oh-my-zsh installation failed!"; exit 1; }
+rm /tmp/install-ohmyzsh.sh
 
 # Install plugins
 echo "📦 Installing plugins..."
