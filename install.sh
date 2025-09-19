@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 script_dir=$(dirname "$0")
 
 HOSTNAME=$(hostname)
@@ -13,11 +14,12 @@ sudo apt-get update
 echo "📦 Installing zsh..."
 sudo apt-get install -y zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
-    echo "✅ oh-my-zsh is already installed. Skipping installation..."
-else
-    echo "📦 Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    echo "🗑️  Removing existing oh-my-zsh installation..."
+    rm -rf "$HOME/.oh-my-zsh"
 fi
+echo "📦 Installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || { echo "❌ oh-my-zsh installation failed!"; exit 1; }
+
 # Install plugins
 echo "📦 Installing plugins..."
 sudo apt-get install -y bat
