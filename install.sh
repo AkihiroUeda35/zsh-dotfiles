@@ -8,7 +8,7 @@ if ! grep -q "$HOSTNAME" /etc/hosts; then
     echo "127.0.1.1 $HOSTNAME" | sudo tee -a /etc/hosts
 fi
 
-echo "🚀 Setting up zsh and oh-my-zsh for devcontainer..."
+echo "🚀 Setting up zsh and oh-my-zsh..."
 sudo apt-get update
 
 echo "📦 Installing zsh..."
