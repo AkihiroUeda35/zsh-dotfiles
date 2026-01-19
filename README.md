@@ -12,7 +12,7 @@ Set User's `settings.json` of VScode as following.
   "dotfiles.targetPath": "~/dotfiles", //repository will be cloned to this path
   "dotfiles.installCommand": "install.sh", // command to run after cloning the repository
 
-   "terminal.integrated.defaultProfile.linux": "zsh", // set zsh as default shell ( if not found, bash will be used)
+  "terminal.integrated.defaultProfile.linux": "zsh", // set zsh as default shell ( if not found, bash will be used)
 ```
 
 ## Plugins for zsh
